@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Facebook API</title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+		$(document).ready(function()
+		{
+			$(document).on("click", ".btn", function()
+			{
+				$.ajax({
+				   url: 'https://graph.facebook.com/4?access_token=CAACEdEose0cBAEU1YIta8axZA5VjY4i5anrgygv7Uvxbl8ULx9Uahqhg0DsmAlY3a4raZC2lgAwIkSRfgbqFZAdvGqCDlj5EdVIEI5XgbbzPUVtQY8IrvIZCnuaVgDTLv6mmVFHjUWLSqGtekJL5JzgHPoRZArWb4d2skyoe0QTip41zIZCZAFt8jCLyufHQckZD',
+				   data: {
+				      format: 'json'
+				   },
+				   error: function() {
+				   		alert("Wrong!!!");
+				   },
+				   dataType: 'jsonp',
+				   success: function(data) {
+						$('.name').append(data.name);
+				   },
+				   type: 'GET'
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+<button class="btn">Stalk Mark</button>
+<table>
+	<thead>
+		<tr>
+			<th>Facebook founder</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="name"></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
